@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:responsive_builder/responsive_builder.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -14,14 +17,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       // backgroundColor: Color(0xff28292E),
       backgroundColor: Colors.pink[900],
-      
+
       body: Row(
         children: <Widget>[
           NavigationRail(
             minWidth: 56.0,
             groupAlignment: 1.0,
             // backgroundColor: Color(0xff2D3035),
-            backgroundColor:Colors.pink[950],
+            backgroundColor: Colors.pink[950],
             selectedIndex: _selectedIndex,
             onDestinationSelected: (int index) {
               setState(() {
@@ -55,20 +58,22 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             selectedLabelTextStyle: TextStyle(
-              color: Color(0xffFCCFA8),
-              fontSize: 13,
+              color: Colors.pink[900],
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
               letterSpacing: 0.8,
               decoration: TextDecoration.underline,
               decorationThickness: 2.0,
             ),
             unselectedLabelTextStyle: TextStyle(
               fontSize: 13,
+              fontWeight: FontWeight.bold,
               letterSpacing: 0.8,
             ),
             destinations: [
-              buildRotatedTextRailDestination("Popular", padding),
-              buildRotatedTextRailDestination("Favourites", padding),
-              buildRotatedTextRailDestination("Inspiration", padding),
+              buildRotatedTextRailDestination("Highlights", padding),
+              buildRotatedTextRailDestination("Experience", padding),
+              buildRotatedTextRailDestination("Education", padding),
               buildRotatedTextRailDestination("All", padding),
             ],
           ),
@@ -108,6 +113,23 @@ class ContentSpace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var deviceType = getDeviceType(MediaQuery.of(context).size);
+    var txthead = 60;
+    var txthead1 = 60;
+    switch (deviceType) {
+      case DeviceScreenType.desktop:
+        txthead = 60;
+        txthead1 = 40;
+        break;
+      case DeviceScreenType.tablet:
+        txthead = 30;
+        txthead1 = 20;
+        break;
+      case DeviceScreenType.mobile:
+        txthead = 30;
+        txthead1 = 20;
+        break;
+    }
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(24, 8, 0, 0),
@@ -117,16 +139,45 @@ class ContentSpace extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  IconButton(
-                    icon: Icon(Icons.search),
-                    onPressed: () {},
+                  buildTitleName(txthead, 'Robert Robinson R'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      IconButton(
+                        icon: FaIcon(FontAwesomeIcons.linkedin,
+                            color: Colors.white),
+                        onPressed: () async {
+                          var url =
+                              'https://www.linkedin.com/in/robertrobinson777/';
+
+                          if (await canLaunch(url)) {
+                            await launch(url, forceSafariVC: false);
+                          } else {
+                            throw 'Could not launch $url';
+                          }
+                        },
+                      ),
+                      IconButton(
+                          icon: FaIcon(FontAwesomeIcons.twitter,
+                              color: Colors.white),
+                          onPressed: () => {}),
+                      IconButton(
+                          icon: FaIcon(FontAwesomeIcons.instagram,
+                              color: Colors.white),
+                          onPressed: () => {}),
+                      IconButton(
+                          icon: FaIcon(FontAwesomeIcons.facebook,
+                              color: Colors.white),
+                          onPressed: () => {})
+                    ],
                   ),
-                  IconButton(
-                    icon: Icon(Icons.calendar_today),
-                    onPressed: () {},
-                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  buildTitleName(txthead1, 'Software Engineer'),
                 ],
               ),
               SizedBox(
@@ -140,6 +191,15 @@ class ContentSpace extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget buildTitleName(txthead, txt) {
+    return Flexible(
+      child: Text(
+        txt,
+        style: TextStyle(fontSize: txthead, color: Colors.white),
       ),
     );
   }
