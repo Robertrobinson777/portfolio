@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:robby_portfolio/highlight.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'experience.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -44,9 +47,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         "https://lh3.googleusercontent.com/ogw/ADGmqu95rDpbsu281AnRdzv2joc-OySaL183HIFPDz92=s192-c-mo"),
                   ),
                 ),
-                SizedBox(
-                  height: 108,
-                ),
+                // SizedBox(
+                //   height: 108,
+                // ),
                 // RotatedBox(
                 //   quarterTurns: -1,
                 //   child: IconButton(
@@ -147,6 +150,7 @@ class ContentSpace extends StatelessWidget {
                     children: <Widget>[
                       IconButton(
                         icon: FaIcon(FontAwesomeIcons.linkedin,
+                        // size: 10,
                             color: Colors.white),
                         onPressed: () async {
                           var url =
@@ -161,14 +165,17 @@ class ContentSpace extends StatelessWidget {
                       ),
                       IconButton(
                           icon: FaIcon(FontAwesomeIcons.twitter,
+                            // size: 10,
                               color: Colors.white),
                           onPressed: () => {}),
                       IconButton(
                           icon: FaIcon(FontAwesomeIcons.instagram,
+                          // size: 10,
                               color: Colors.white),
                           onPressed: () => {}),
                       IconButton(
                           icon: FaIcon(FontAwesomeIcons.facebook,
+                          // size: 10,
                               color: Colors.white),
                           onPressed: () => {})
                     ],
@@ -183,8 +190,7 @@ class ContentSpace extends StatelessWidget {
               SizedBox(
                 height: 24,
               ),
-              Text(titles[_selectedIndex],
-                  style: Theme.of(context).textTheme.headline4),
+              _child(),
               SizedBox(
                 height: 24,
               ),
@@ -193,6 +199,29 @@ class ContentSpace extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _child() {
+    switch (_selectedIndex) {
+      case 0:
+        return Highlight();
+        break;
+      case 1:
+        return Experience();
+        break;
+      // case 2:
+      //   return Text(titles[_selectedIndex],
+      //       style: Theme.of(context).textTheme.headline4);
+      //   break;
+      // // case 3:
+      // //   return RequestListScreen();
+      // //   break;
+      // case 3:
+      //   return Text(titles[_selectedIndex],
+      //       style: Theme.of(context).textTheme.headline4);
+      //   break;
+    }
+    return Container();
   }
 
   Widget buildTitleName(txthead, txt) {
