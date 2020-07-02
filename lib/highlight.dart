@@ -8,8 +8,9 @@ class Highlight extends StatefulWidget {
 class _HighlightState extends State<Highlight> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
+    return Expanded(
+        child: new ListView(shrinkWrap: true, children: <Widget>[
+      Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -25,9 +26,10 @@ class _HighlightState extends State<Highlight> {
               'Google App Engine,Google Cloud Storage,Google Cloud SQL,Google Stackdriver,Gmail automation,Google Cloud Pub/Sub,Google BigQuery,Google Vision API.'),
           buildBodyText(
               'Worked on projects for companies in China, US, Middle East and India.'),
+          
         ],
-      ),
-    );
+      )
+    ]));
   }
 
   Widget buildBodyText(txt) {

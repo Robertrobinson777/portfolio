@@ -132,6 +132,10 @@ class ContentSpace extends StatelessWidget {
         txthead = 30;
         txthead1 = 20;
         break;
+      case DeviceScreenType.watch:
+        txthead = 10;
+        txthead1 = 07;
+        break;
     }
     return Expanded(
       child: Padding(
@@ -139,7 +143,7 @@ class ContentSpace extends StatelessWidget {
         child: MediaQuery.removePadding(
           removeTop: true,
           context: context,
-          child: ListView(
+          child: Column(
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -207,7 +211,7 @@ class ContentSpace extends StatelessWidget {
         return Highlight();
         break;
       case 1:
-        return Experience();
+        return Example9();
         break;
       // case 2:
       //   return Text(titles[_selectedIndex],

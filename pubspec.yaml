@@ -32,6 +32,8 @@ dependencies:
   responsive_builder: ^0.2.0+2
   url_launcher: ^5.4.11
   flutter_launcher_icons: ^0.7.5
+  timeline_tile: ^0.1.2
+  timeline_list: ^0.0.3
 
   shimmer: ^1.1.1
 

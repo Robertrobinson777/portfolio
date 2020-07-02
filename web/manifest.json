@@ -1,11 +1,11 @@
 {
-    "name": "robby_portfolio",
-    "short_name": "robby_portfolio",
+    "name": "Robby Portfolio",
+    "short_name": "Robby",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#880e4f",
+    "theme_color": "#880e4f",
+    "description": "Robert Robinson Portfolio.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
