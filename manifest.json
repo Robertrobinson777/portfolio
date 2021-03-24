@@ -1,0 +1,23 @@
+{
+    "name": "Robby Portfolio",
+    "short_name": "Robby",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#880e4f",
+    "theme_color": "#880e4f",
+    "description": "Robert Robinson Portfolio.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Robby.jpg",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
