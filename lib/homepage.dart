@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:robby_portfolio/highlight.dart';
+import 'package:robby_portfolio/timeli.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'experience.dart';
@@ -145,52 +146,27 @@ class ContentSpace extends StatelessWidget {
           context: context,
           child: Column(
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  buildTitleName(txthead, 'Robert Robinson R'),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      IconButton(
-                        icon: FaIcon(FontAwesomeIcons.linkedin,
-                        // size: 10,
-                            color: Colors.white),
-                        onPressed: () async {
-                          var url =
-                              'https://www.linkedin.com/in/robertrobinson777/';
-
-                          if (await canLaunch(url)) {
-                            await launch(url, forceSafariVC: false);
-                          } else {
-                            throw 'Could not launch $url';
-                          }
-                        },
-                      ),
-                      IconButton(
-                          icon: FaIcon(FontAwesomeIcons.twitter,
-                            // size: 10,
-                              color: Colors.white),
-                          onPressed: () => {}),
-                      IconButton(
-                          icon: FaIcon(FontAwesomeIcons.instagram,
-                          // size: 10,
-                              color: Colors.white),
-                          onPressed: () => {}),
-                      IconButton(
-                          icon: FaIcon(FontAwesomeIcons.facebook,
-                          // size: 10,
-                              color: Colors.white),
-                          onPressed: () => {})
-                    ],
-                  ),
-                ],
-              ),
+              deviceType == DeviceScreenType.mobile
+                  ? Row(
+                      children: [
+                        buildTitleName(txthead, 'Robert Robinson R'),
+                      ],
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        buildTitleName(txthead, 'Robert Robinson R'),
+                        buildRowsocial(),
+                      ],
+                    ),
               Row(
                 children: [
                   buildTitleName(txthead1, 'Software Engineer'),
                 ],
               ),
+              deviceType == DeviceScreenType.mobile
+                  ? buildRowsocial()
+                  : Container(),
               SizedBox(
                 height: 24,
               ),
@@ -205,6 +181,84 @@ class ContentSpace extends StatelessWidget {
     );
   }
 
+  Widget buildRowsocial() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        IconButton(
+          icon: FaIcon(FontAwesomeIcons.linkedin,
+              // size: 10,
+              color: Colors.white),
+          onPressed: () async {
+            var url = 'https://www.linkedin.com/in/robertrobinson777/';
+
+            if (await canLaunch(url)) {
+              await launch(url, forceSafariVC: false);
+            } else {
+              throw 'Could not launch $url';
+            }
+          },
+        ),
+        IconButton(
+          icon: FaIcon(FontAwesomeIcons.twitter,
+              // size: 10,
+              color: Colors.white),
+          onPressed: () async {
+            var url = 'https://twitter.com/R_RobRobinson';
+
+            if (await canLaunch(url)) {
+              await launch(url, forceSafariVC: false);
+            } else {
+              throw 'Could not launch $url';
+            }
+          },
+        ),
+        IconButton(
+          icon: FaIcon(FontAwesomeIcons.instagram,
+              // size: 10,
+              color: Colors.white),
+          onPressed: () async {
+            var url = 'https://www.instagram.com/robertrobinson777/';
+
+            if (await canLaunch(url)) {
+              await launch(url, forceSafariVC: false);
+            } else {
+              throw 'Could not launch $url';
+            }
+          },
+        ),
+        IconButton(
+          icon: FaIcon(FontAwesomeIcons.facebook,
+              // size: 10,
+              color: Colors.white),
+          onPressed: () async {
+            var url = 'https://www.facebook.com/robertrobinsonr777';
+
+            if (await canLaunch(url)) {
+              await launch(url, forceSafariVC: false);
+            } else {
+              throw 'Could not launch $url';
+            }
+          },
+        ),
+        IconButton(
+          icon: FaIcon(FontAwesomeIcons.github,
+              // size: 10,
+              color: Colors.white),
+          onPressed: () async {
+            var url = 'https://github.com/robertrobinson777';
+
+            if (await canLaunch(url)) {
+              await launch(url, forceSafariVC: false);
+            } else {
+              throw 'Could not launch $url';
+            }
+          },
+        ),
+      ],
+    );
+  }
+
   Widget _child() {
     switch (_selectedIndex) {
       case 0:
@@ -213,10 +267,9 @@ class ContentSpace extends StatelessWidget {
       case 1:
         return Example9();
         break;
-      // case 2:
-      //   return Text(titles[_selectedIndex],
-      //       style: Theme.of(context).textTheme.headline4);
-      //   break;
+      case 2:
+        return TimelinePage();
+        break;
       // // case 3:
       // //   return RequestListScreen();
       // //   break;

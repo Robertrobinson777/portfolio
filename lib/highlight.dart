@@ -26,7 +26,6 @@ class _HighlightState extends State<Highlight> {
               'Google App Engine,Google Cloud Storage,Google Cloud SQL,Google Stackdriver,Gmail automation,Google Cloud Pub/Sub,Google BigQuery,Google Vision API.'),
           buildBodyText(
               'Worked on projects for companies in China, US, Middle East and India.'),
-          
         ],
       )
     ]));

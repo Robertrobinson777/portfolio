@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
-import 'package:timeline_list/timeline.dart';
-import 'package:timeline_list/timeline_model.dart';
+// import 'package:timeline_list/timeline.dart';
+// import 'package:timeline_list/timeline_model.dart';
 import 'data.dart';
 
 class Timeline extends StatelessWidget {
@@ -9,7 +9,7 @@ class Timeline extends StatelessWidget {
     @required this.children,
     this.indicators,
     this.isLeftAligned = true,
-    this.itemGap = 12.0,
+    this.itemGap = 20.0,
     this.gutterSpacing = 4.0,
     this.padding = const EdgeInsets.all(8),
     this.controller,
@@ -19,11 +19,11 @@ class Timeline extends StatelessWidget {
     this.primary = false,
     this.reverse = false,
     this.indicatorSize = 60.0,
-    this.lineGap = 4.0,
+    this.lineGap = 10.0,
     this.indicatorColor = Colors.blue,
     this.indicatorStyle = PaintingStyle.fill,
-    this.strokeCap = StrokeCap.butt,
-    this.strokeWidth = 2.0,
+    this.strokeCap = StrokeCap.round,
+    this.strokeWidth = 3.0,
     this.style = PaintingStyle.stroke,
   })  : itemCount = children.length,
         assert(itemGap >= 0),
@@ -193,18 +193,47 @@ class Example9 extends StatelessWidget {
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Text('Software Engineer')],
+            children: [
+              Text('Software Engineer'),
+              Text('Booking App [Flutter, CodeIgniter, Firebase]'),
+              Text(
+                  'This app is intended for companies or shops that rely heavily on walk-ins. The customer will book anappointment through this app and it will show in your admin website. The customer can check-in and check-out for their appointment.'),
+              Text(
+                  'API written using PHP & CodeIgniter and hosted in Google Cloud App Engine Standard.'),
+              Text(
+                  'Database hosted in Cloud SQL MySQL flavor in Google Cloud Platform.'),
+              Text(
+                  'Used Firebase for authentication and authorization in admin website and mobile application.'),
+            ],
           ),
-          Container(height: 50, color: Colors.amber),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Software Engineer'),
+              Text('Booking App [Flutter, CodeIgniter, Firebase]'),
+              Text(
+                  'This app is intended for companies or shops that rely heavily on walk-ins. The customer will book anappointment through this app and it will show in your admin website. The customer can check-in and check-out for their appointment.'),
+              Text(
+                  'API written using PHP & CodeIgniter and hosted in Google Cloud App Engine Standard.'),
+              Text(
+                  'Database hosted in Cloud SQL MySQL flavor in Google Cloud Platform.'),
+              Text(
+                  'Used Firebase for authentication and authorization in admin website and mobile application.'),
+            ],
+          ),
           Container(height: 200, color: Colors.amber),
           Container(height: 100, color: Colors.amber),
         ],
         indicators: <Widget>[
-          Text('2017- Present'),
+          Text('2020 - Present'),
+          Text('2020 - Present'),
+          Text('2020 - Present'),
+          Text('2020 - Present'),
+          // Text('2020 - Present'),
           // Icon(Icons.access_alarm),
-          Icon(Icons.backup),
-          Icon(Icons.accessibility_new),
-          Icon(Icons.access_alarm),
+          // Icon(Icons.backup),
+          // Icon(Icons.accessibility_new),
+          // Icon(Icons.access_alarm),
         ],
       ),
     ]));

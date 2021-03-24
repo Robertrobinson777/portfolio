@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robby_portfolio/timeli.dart';
 
 import 'homepage.dart';
 
@@ -15,10 +16,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: Theme.of(context).textTheme.apply(
+              bodyColor: Colors.white,
+              displayColor: Colors.white,
+            ),
       ),
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => MyHomePage(),
+        // '/': (context) => TimelinePage(),
       },
     );
   }
