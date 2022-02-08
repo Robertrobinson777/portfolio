@@ -24,34 +24,38 @@ class _TimelinePageState extends State<TimelinePage> {
       timelineModel(TimelinePosition.Right)
     ];
 
-    return Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-            currentIndex: pageIx,
-            onTap: (i) => pageController.animateToPage(i,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut),
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.format_align_left),
-                title: Text("LEFT"),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.format_align_center),
-                title: Text("CENTER"),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.format_align_right),
-                title: Text("RIGHT"),
-              ),
-            ]),
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: PageView(
-          onPageChanged: (i) => setState(() => pageIx = i),
-          controller: pageController,
-          children: pages,
-        ));
+    return Expanded(
+        // bottomNavigationBar: BottomNavigationBar(
+        //     currentIndex: pageIx,
+        //     onTap: (i) => pageController.animateToPage(i,
+        //         duration: const Duration(milliseconds: 300),
+        //         curve: Curves.easeInOut),
+        //     items: const [
+        //       BottomNavigationBarItem(
+        //         icon: Icon(Icons.format_align_left),
+        //         label: "LEFT",
+        //       ),
+        //       BottomNavigationBarItem(
+        //         icon: Icon(Icons.format_align_center),
+        //         label: "CENTER",
+        //       ),
+        //       BottomNavigationBarItem(
+        //         icon: Icon(Icons.format_align_right),
+        //         label: "RIGHT",
+        //       ),
+        //     ]),
+
+        child: Column(
+      children: [
+        Text('inprogress'),
+      ],
+    )
+        //  PageView(
+        //   onPageChanged: (i) => setState(() => pageIx = i),
+        //   controller: pageController,
+        //   children: pages,
+        // )
+        );
   }
 
   timelineModel(TimelinePosition position) => Timeline.builder(
@@ -86,7 +90,7 @@ class _TimelinePageState extends State<TimelinePage> {
                 ),
                 Text(
                   doodle.name,
-                  style: textTheme.title,
+                  style: textTheme.bodyText1,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(

@@ -1,33 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="description" content="A new Flutter project." />
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="robby_portfolio">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="robby_portfolio" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
 
-  <title>robby_portfolio</title>
-  <link rel="manifest" href="manifest.json">
-</head>
-<body>
-  <!-- This script installs service_worker.js to provide PWA functionality to
+    <title>robby_portfolio</title>
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyD0KrPdeQ3FUr9s2F4s8w8IRFI_PtQvt2c",
+        authDomain: "robby-889f1.firebaseapp.com",
+        databaseURL: "https://robby-889f1.firebaseio.com",
+        projectId: "robby-889f1",
+        storageBucket: "robby-889f1.appspot.com",
+        messagingSenderId: "221689208840",
+        appId: "1:221689208840:web:4efd313d7511120b3c31bd",
+        measurementId: "G-THR1JKLW80",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+    <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js');
-      });
-    }
-  </script>
-  <script src="main.dart.js" type="application/javascript"></script>
-</body>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("flutter_service_worker.js");
+        });
+      }
+    </script>
+    <script src="main.dart.js" type="application/javascript"></script>
+  </body>
 </html>

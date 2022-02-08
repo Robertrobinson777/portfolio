@@ -15,6 +15,8 @@ class _HighlightState extends State<Highlight> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           buildBodyText(
+              'Six plus years experinece in software development in the field of web application and mobile application development'),
+          buildBodyText(
               'Customized CodeIgniter and made it run natively on Google Cloud App Engine Standard in 2016.'),
           buildBodyText(
               'Worked on the open source project yaapiyal and released under MIT license in GitHub.'),

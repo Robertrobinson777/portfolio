@@ -194,8 +194,8 @@ class Example9 extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Software Engineer'),
-              Text('Booking App [Flutter, CodeIgniter, Firebase]'),
+              Text('Senior Associate'),
+              Text('Flutter, Firebase'),
               Text(
                   'This app is intended for companies or shops that rely heavily on walk-ins. The customer will book anappointment through this app and it will show in your admin website. The customer can check-in and check-out for their appointment.'),
               Text(
@@ -221,14 +221,27 @@ class Example9 extends StatelessWidget {
                   'Used Firebase for authentication and authorization in admin website and mobile application.'),
             ],
           ),
-          Container(height: 200, color: Colors.amber),
-          Container(height: 100, color: Colors.amber),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Software Engineer'),
+              Text(
+                  'CodeIgniter, Laravel, MySQL, PHP, HTML, CSS, Javascript, JQuery, AJAX, Bootstrap, Firebase, Google Cloud Platform, Google Cloud App Engine Standard'),
+              Text(
+                  'This app is intended for companies or shops that rely heavily on walk-ins. The customer will book anappointment through this app and it will show in your admin website. The customer can check-in and check-out for their appointment.'),
+              Text(
+                  'API written using PHP & CodeIgniter and hosted in Google Cloud App Engine Standard.'),
+              Text(
+                  'Database hosted in Cloud SQL MySQL flavor in Google Cloud Platform.'),
+              Text(
+                  'Used Firebase for authentication and authorization in admin website and mobile application.'),
+            ],
+          ),
         ],
         indicators: <Widget>[
           Text('2020 - Present'),
-          Text('2020 - Present'),
-          Text('2020 - Present'),
-          Text('2020 - Present'),
+          Text('2017 - 2020'),
+          Text('2016 - 2017'),
           // Text('2020 - Present'),
           // Icon(Icons.access_alarm),
           // Icon(Icons.backup),
